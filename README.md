@@ -5,7 +5,7 @@ Tiny util to await an endpoint to respond
 ## Usage
 
 ```ts
-import { awaitResponse } from "@gaute/await-response/";
+import { waitResponse } from "@gaute/await-response/";
 
-await awaitResponse('http://localhost:8080/')
+await waitResponse('http://localhost:8080/')
 ```
