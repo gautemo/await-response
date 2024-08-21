@@ -1,7 +1,9 @@
-name: publish
+name: Publish
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
@@ -9,14 +11,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v4
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1.1.4
-
-      - name: Publish
-        run: deno publish
-
+      - uses: actions/checkout@v4
+      - run: npx jsr publish
