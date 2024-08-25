@@ -6,7 +6,7 @@ type Options = {
    * If not specified, defaults to 'GET' */
   method?: Method,
   /** Specify in milliseconds how often to request the URL. 
-   * If not specified, defaults to 50 milliseconds */
+   * If not specified, defaults to 100 milliseconds */
   interval?: number,
   /** Specify in milliseconds when to timeout the waiting. 
    * If not specified, defaults to 300000 milliseconds */
@@ -22,7 +22,7 @@ type Options = {
 */
 export function waitResponse(url: RequestInfo | URL, options?: Options): Promise<Response> {
   const timeout = options?.timeout ?? 60_000 * 5
-  const interval = options?.interval ?? 50
+  const interval = options?.interval ?? 100
   const method = options?.method ?? 'GET'
   return new Promise(async (resolve, reject) => {
     const startTimestamp = Date.now()
